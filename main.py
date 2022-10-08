@@ -24,29 +24,26 @@ class Test(MDApp):
         self.t_date_range = date_range
         '''
         Events called when the "OK" dialog box button is clicked.
-
         :type instance: <kivymd.uix.picker.MDDatePicker object>;
         :param value: selected date;
         :type value: <class 'datetime.date'>;
         :param date_range: list of 'datetime.date' objects in the selected range;
         :type date_range: <class 'list'>;
+        :print instance, value,
         '''
- # print instance, value,
         try :
             date_ch = "from "+str(date_range[0])+" \nto "+str(date_range[-1])
             self.root.get_screen('mainmenu').ids.date_range.text = date_ch
         except:
-            pass
+            toast("select date!")
 
     def on_cancel(self, instance, value):
         '''Events called when the "CANCEL" dialog box button is clicked.'''
     def next_screen(self):
         print("go to next screen ")
     def show_date_picker(self):
+        '''Dialog box to select the date'''
         date_dialog = MDDatePicker(mode="range")
-
-        #date_dialog.open()
-       # date_dialog = MDDatePicker()
         date_dialog.bind(on_save=self.on_save, on_cancel=self.on_cancel)
         date_dialog.open()
     def num(self,ch):
@@ -54,7 +51,7 @@ class Test(MDApp):
             ch = ch[1:]
         return not (len(ch)==0) 
     def procces(self):
-        
+        '''To work this fonction need all money and averge the spend a money '''
         try:
             print(len(self.t_date_range))
             toast("worked!")
@@ -66,27 +63,32 @@ class Test(MDApp):
             all_mony = int(self.root.get_screen('mainmenu').ids.all_mony.text)
             avg = int(self.root.get_screen('mainmenu').ids.avg.text)
             print(year,month,day,last_day,all_mony,avg)
+            # test the first day
             if day<=last_day and all_mony>=avg :
                 all_mony-=avg
                 t.append(f"Nhar[color=3333ff] {day-1} [/color]bch t3adih o yab9alek[color=3333ff] {all_mony*0.001} TND [/color].  ")
 
                 all_mony-=avg
+            # start testing the other month
             while day<=last_day and all_mony>=avg :
                 t.append(f"Nhar[color=3333ff] {day} [/color]bch t3adih o yab9alek[color=3333ff] {all_mony*0.001} TND [/color].  ")
                 day+=1
                 all_mony-=avg
                 
                 print(day,all_mony)
+            # if you still have money
             if all_mony > 0 :
                     t.append(f"Youm[color=3333ff] {day} [/color]lezmek t3adyh b {all_mony} . ")
+            # if you dont have money
             if last_day>day :
                 for i in range(day+1,last_day+1):
                     t.append(f"Nhar[color=3333ff] {i} [/color]ma3ndek fih [color=ff3333]hata frank[/color] !")
             t.append("\n \n")
+            # afficher 
             for i in t :
                 self.root.ids.scr_2.ids.label.text += '\n' + str(i)
-            #   self.root.ids.scr_2.ids.label.text += all_mony + "\n" + str(last_day)
                 self.root.ids.scr_2.ids.scroll_view.scroll_y = 0
+        # if you have problem 
         except:
             toast("Failed")
             if self.num(self.root.get_screen('mainmenu').ids.all_mony.text) :
