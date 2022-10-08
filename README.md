@@ -4,4 +4,4 @@
 
 Is an mobile application ,i build it using kivy framework .<br>
 This app can take save your money to the next level .<br>
-To download this code on APK mode click to the next link -> [**DOWNLOAD**](https://mega.nz/file/veRQwSAL#Xa3bApVehnhr5ZLU5IeoSc3YQAaCegRuo0TzFtB2YWQ)
+To download this application on APK mode click to the next link -> [**DOWNLOAD**](https://mega.nz/file/veRQwSAL#Xa3bApVehnhr5ZLU5IeoSc3YQAaCegRuo0TzFtB2YWQ)
