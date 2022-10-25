@@ -27,10 +27,9 @@ class Test(MDApp):
             self.root.get_screen('mainmenu').ids.date_range.text = date_ch
         except:
             toast("select date!")
-
     def on_cancel(self, instance, value):
         '''if u dont select date'''
-        toast("try to select date again and clicke ok")
+        toast("try to select date again and clicke ok"
     def next_screen(self):
         print("go to next screen ")
     def show_date_picker(self):
@@ -59,14 +58,12 @@ class Test(MDApp):
             if day<=last_day and all_mony>=avg :
                 all_mony-=avg
                 t.append(f"Nhar[color=3333ff] {day-1} [/color]bch t3adih o yab9alek[color=3333ff] {all_mony*0.001} TND [/color].  ")
-
                 all_mony-=avg
             # start testing the other month
             while day<=last_day and all_mony>=avg :
                 t.append(f"Nhar[color=3333ff] {day} [/color]bch t3adih o yab9alek[color=3333ff] {all_mony*0.001} TND [/color].  ")
                 day+=1
                 all_mony-=avg
-                
                 print(day,all_mony)
             # if you still have money
             if all_mony > 0 :
@@ -90,4 +87,5 @@ class Test(MDApp):
             if len(self.t_date_range)<=1 :
                 toast("qadeh 3andek flous entier!")
 
-Test().run()
+if __name__ == '__main__' :
+    Test().run()
