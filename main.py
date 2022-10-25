@@ -7,8 +7,7 @@ from kivymd.toast import toast
 from kivy_design import KV
 
 class MenuScreen(Screen):
-    def range(self,d):
-    	print(d)
+    ...
 
 class Screen2(Screen):
     txt = "\n[b][color=ff0099]  [*] istahfed 3la masroufek yee bro ;) [/color][/b]"
