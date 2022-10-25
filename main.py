@@ -22,15 +22,6 @@ class Test(MDApp):
 
     def on_save(self, instance, value, date_range):
         self.t_date_range = date_range
-        '''
-        Events called when the "OK" dialog box button is clicked.
-        :type instance: <kivymd.uix.picker.MDDatePicker object>;
-        :param value: selected date;
-        :type value: <class 'datetime.date'>;
-        :param date_range: list of 'datetime.date' objects in the selected range;
-        :type date_range: <class 'list'>;
-        :print instance, value,
-        '''
         try :
             date_ch = "from "+str(date_range[0])+" \nto "+str(date_range[-1])
             self.root.get_screen('mainmenu').ids.date_range.text = date_ch
@@ -38,7 +29,8 @@ class Test(MDApp):
             toast("select date!")
 
     def on_cancel(self, instance, value):
-        '''Events called when the "CANCEL" dialog box button is clicked.'''
+        '''if u dont select date'''
+        toast("try to select date again and clicke ok")
     def next_screen(self):
         print("go to next screen ")
     def show_date_picker(self):
