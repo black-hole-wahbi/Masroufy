@@ -34,10 +34,6 @@ KV = '''
         MDRoundFlatButton:
     		
  		   text: "Procces your information"
- 		  # width: root.width * .6
-#            icon: "language-python"
-#            theme_icon_color: "Custom"
-#            icon_color: app.theme_cls.primary_color
             pos_hint: {"center_x": .5, "center_y": .1}
             on_press: app.procces()
             on_release:
