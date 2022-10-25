@@ -19,7 +19,6 @@ class Test(MDApp):
         #self.theme_cls.theme_style = "Dark"
         self.theme_cls.primary_palette = "LightBlue"
         return Builder.load_string(KV)
-
     def on_save(self, instance, value, date_range):
         self.t_date_range = date_range
         try :
